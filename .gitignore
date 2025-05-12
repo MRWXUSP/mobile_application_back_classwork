@@ -1,3 +1,8 @@
 .vscode
 drogon_mobile/build/drogon_mobile
 drogon_mobile/build/test/drogon_mobile_test
+python/__pycache__
+python/img_temp
+python/logs
+datas
+python/proxy.txt
