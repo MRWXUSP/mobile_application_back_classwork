@@ -20,7 +20,8 @@ class movie : public drogon::HttpController<movie>
     METHOD_ADD(movie::get_movie_info, "/info/{1}", Get); // path is /mobile/movie/info/{arg1} arg1:电影ID
     // 获取某个电影的封面
     METHOD_ADD(movie::get_movie_photo, "/photo/{1}", Get); // path is /mobile/movie/photo/{arg1} arg1:电影ID
-
+    // 获取某个用户的推荐电影
+    METHOD_ADD(movie::get_user_recommendations, "/recommend/{1}", Get); // path is /mobile/movie/recommend/{arg1} arg1:用户ID
     METHOD_LIST_END
     // your declaration of processing function maybe like this:
     // void get(const HttpRequestPtr& req, std::function<void (const HttpResponsePtr &)> &&callback, int p1, std::string p2);
@@ -31,5 +32,7 @@ class movie : public drogon::HttpController<movie>
     void get_movie_info(const HttpRequestPtr& req, std::function<void (const HttpResponsePtr &)> &&callback, const std::string& movieId) const;
     // 获取某个电影的封面
     void get_movie_photo(const HttpRequestPtr& req, std::function<void (const HttpResponsePtr &)> &&callback, const std::string& movieId) const;
+    // 获取某个用户的推荐电影
+    void get_user_recommendations(const HttpRequestPtr& req, std::function<void (const HttpResponsePtr &)> &&callback, const std::string& userId) const;
 };
 }

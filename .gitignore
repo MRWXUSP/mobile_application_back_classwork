@@ -6,3 +6,6 @@ python/img_temp
 python/logs
 datas
 python/proxy.txt
+python/gpt-movie.py
+python/movie.json
+python/movie.txt
