@@ -5,6 +5,8 @@
 #include <fstream>
 #include <unistd.h> // for getcwd
 #include <limits.h> // for PATH_MAX
+#include <thread>
+#include <chrono>
 
 using namespace mobile;
 
@@ -241,11 +243,13 @@ void movie::get_movie_photo(const HttpRequestPtr& req, std::function<void (const
 
 // 获取某个用户的推荐电影
 void movie::get_user_recommendations(const HttpRequestPtr& req, std::function<void (const HttpResponsePtr &)> &&callback, const std::string& userId) const
-{
+{   
+    std::this_thread::sleep_for(std::chrono::seconds(5));
     auto dbClient = drogon::app().getDbClient("default");
     std::string sql = "SELECT * FROM recommend_movies WHERE uid = ?";
     try{
-        auto result = dbClient->execSqlSync(sql, userId);
+        auto result = dbClient->execSqlAsyncFuture(sql, userId).get();
+        // auto result = dbClient->execSqlSync(sql, userId);
         Json::Value json;
         if (result.size() > 0) {
             const auto &row = result[0];
