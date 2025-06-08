@@ -6,7 +6,7 @@ int main() {
     drogon::app().loadConfigFile("../config.json");
     //drogon::app().loadConfigFile("../config.yaml");
     //Run HTTP framework,the method will block in the internal event loop
-    drogon::app().setThreadNum(4); // 设置4个工作线程
+    drogon::app().setThreadNum(64); // 设置64个工作线程
     drogon::app().run();
     return 0;
 }

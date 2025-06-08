@@ -27,7 +27,7 @@ mobile_application_back_classwork/
 ```
 
 ## 部署
-本服务器基于`drogon`框架构建，使用`mariaDB`作为数据库，`python`作为爬虫获取信息，**AI部分待补充**
+本服务器基于`drogon`框架构建，使用`mariaDB`作为数据库，`python`作为爬虫获取信息。
 ### 安装mariaDB
 ```bash
 sudo apt install libmariadb-dev
